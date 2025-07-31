@@ -1,0 +1,60 @@
+
+> hiroshima-okonomiyaki-guide@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.4.5 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.151.122:3000
+
+ ✓ Starting...
+ ✓ Ready in 597ms
+ ○ Compiling / ...
+Error: Cannot apply unknown utility class `bg-white`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+    [2m[at onInvalidCandidate (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:18:1312)][0m
+    [2m[at ge (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:13:29803)][0m
+    [2m[at /Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:18:373][0m
+    [2m[at I (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:3:1656)][0m
+    [2m[at je (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:18:172)][0m
+    [2m[at bi (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:35:780)][0m
+    [2m[at process.processTicksAndRejections (node:internal/process/task_queues:105:5)][0m
+    [2m[at async yi (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/tailwindcss/dist/lib.js:35:1123)][0m
+    [2m[at async _r (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/@tailwindcss/node/dist/index.js:10:3384)][0m
+    [2m[at async p (/Users/shogo/hiroshima-okonomiyaki-guide/node_modules/@tailwindcss/postcss/dist/index.js:10:4019)][0m
+ ✓ Compiled / in 1497ms
+ GET / 200 in 1745ms
+ ✓ Compiled /restaurant/[id] in 163ms
+ GET /restaurant/1 200 in 436ms
+ GET /restaurant/1 200 in 63ms
+ GET / 200 in 117ms
+ ✓ Compiled /favicon.ico in 75ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 332ms
+ GET / 200 in 151ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 222ms
+ GET / 200 in 128ms
+ GET /favicon.ico?favicon.45db1c09.ico 200 in 223ms
+ ✓ Compiled in 16ms
+ GET / 200 in 52ms
+ ✓ Compiled in 97ms
+ GET / 200 in 37ms
+ ✓ Compiled in 11ms
+ GET / 200 in 55ms
+ ✓ Compiled /restaurant/[id] in 12ms
+ GET /restaurant/1 200 in 223ms
+ ✓ Compiled / in 21ms
+ GET / 200 in 129ms
+ GET / 200 in 38ms
+ ✓ Compiled / in 12ms
+ GET / 200 in 135ms
+ GET / 200 in 41ms
+ ✓ Compiled / in 9ms
+ GET / 200 in 122ms
+ GET / 200 in 39ms
+ ✓ Compiled / in 10ms
+ GET / 200 in 123ms
+ GET / 200 in 42ms
+ ✓ Compiled /restaurant/[id] in 14ms
+ GET /restaurant/1 200 in 238ms
+ GET /restaurant/1 200 in 145ms
+ GET /restaurant/3 200 in 76ms
+ ✓ Compiled /restaurants in 178ms
+ GET /restaurants 200 in 197ms

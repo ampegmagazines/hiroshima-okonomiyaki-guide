@@ -1,26 +1,268 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* お好み焼きテーマの温かい色彩パレット */
+    --background: 35 20% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 25 90% 48%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 35 30% 95%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 35 15% 92%;
+    --muted-foreground: 30 8% 45%;
+
+    --accent: 15 80% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 25 90% 48%;
+
+    --radius: 0.75rem;
+
+    /* お好み焼きカラーパレット */
+    --okonomiyaki-brown: 25 35% 35%;
+    --okonomiyaki-sauce: 15 80% 25%;
+    --okonomiyaki-cabbage: 120 40% 65%;
+    --okonomiyaki-mayo: 45 100% 95%;
+    --okonomiyaki-nori: 210 30% 20%;
+    
+    /* グラデーション */
+    --warm-gradient: linear-gradient(135deg, hsl(25 90% 48%) 0%, hsl(15 80% 55%) 100%);
+    --food-gradient: linear-gradient(135deg, hsl(25 35% 35%) 0%, hsl(15 80% 25%) 50%, hsl(25 90% 48%) 100%);
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+  }
+  
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .okonomiyaki-hero {
+    background: linear-gradient(135deg, 
+      hsl(25 90% 48% / 0.95) 0%, 
+      hsl(15 80% 55% / 0.9) 50%, 
+      hsl(35 70% 45% / 0.95) 100%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .restaurant-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-orange-100/50;
+    backdrop-filter: blur(10px);
+  }
+  
+  .restaurant-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .restaurant-image {
+    background: var(--food-gradient);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .restaurant-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .badge-primary {
+    @apply bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg;
+  }
+  
+  .badge-secondary {
+    @apply bg-gradient-to-r from-orange-100 to-orange-50 text-orange-800 border border-orange-200;
+  }
+  
+  .glass-card {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }
+  
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px rgba(251, 146, 60, 0.3);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(25 90% 48%), hsl(15 80% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .animate-in {
+    animation-fill-mode: both;
+  }
+  
+  .slide-in-from-bottom-8 {
+    animation-name: slide-in-from-bottom;
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  
+  @keyframes slide-in-from-bottom {
+    from {
+      transform: translateY(2rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* モバイル対応のためのスタイル */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    
+    /* ヘッダーのモバイル対応 */
+    .mobile-nav-hidden {
+      display: none;
+    }
+    
+    /* 統計情報のモバイル対応 */
+    .stats-mobile {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+    
+    /* フィルターボタンのモバイル対応 */
+    .filter-mobile {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+    }
+    
+    /* 店舗カードのモバイル対応 */
+    .restaurant-card-mobile {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  /* タブレット対応のためのスタイル */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .tablet-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 }

@@ -1,0 +1,10 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d2691e"/>
+      <stop offset="100%" stop-color="#cd853f"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#grad1)"/>
+  <text x="300" y="200" font-family="Arial" font-size="24" font-weight="bold" fill="white" text-anchor="middle" dy=".3em">お好み村 ひろしま村</text>
+</svg>
